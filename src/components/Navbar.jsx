@@ -12,7 +12,7 @@ const Navbar = () => {
     googleLogin()
       .then((result) => {
         console.log(result.user);
-        navigate("/quize");
+        navigate("/");
       })
       .catch((error) => {
         const errorMessage = error.message;

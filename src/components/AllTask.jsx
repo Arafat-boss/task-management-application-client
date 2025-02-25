@@ -199,11 +199,12 @@
 // };
 // export default AllTask;
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 import { FaEllipsisH } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Context/AuthProvider";
 
 const AllTask = () => {
   const [tasks, setTasks] = useState([]);
@@ -212,18 +213,28 @@ const AllTask = () => {
   const [updatedTitle, setUpdatedTitle] = useState("");
   const [updatedDescription, setUpdatedDescription] = useState("");
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
+  const {user} = useContext(AuthContext)
 
+  // const email = user.email;
   useEffect(() => {
+    if (!user || !user.email) {
+      // If user is not logged in or email is not available, return early
+      return;
+    }
+  
     const fetchTasks = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/tasks");
+        const response = await axios.get(`http://localhost:3000/tasks/${user.email}`);
         setTasks(response.data);
       } catch (error) {
         console.error("Error fetching tasks:", error);
       }
     };
+  
     fetchTasks();
-  }, []);
+  }, [user]); // Dependency on user to trigger the effect when the user state changes
+  
+  
 
   // handle Click Outside then modal close
   useEffect(() => {

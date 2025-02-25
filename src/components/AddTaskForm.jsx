@@ -1,8 +1,11 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../Context/AuthProvider";
 
 const AddTaskForm = ({ onAddTask }) => {
+  const {user} = useContext(AuthContext)
   const navigate = useNavigate()
   const { register, handleSubmit, reset } = useForm();
 
@@ -12,6 +15,7 @@ const AddTaskForm = ({ onAddTask }) => {
       description: data.desc,
       category: data.category,
       createdAt: new Date().toISOString(),
+      email: user.email,
     };
 
     try {
@@ -50,7 +54,7 @@ const AddTaskForm = ({ onAddTask }) => {
           <div>
             <label className="block text-gray-700 font-medium mb-1">Description</label>
             <textarea
-              {...register("desc", { maxLength: 200 })}
+              {...register("desc", { maxLength: 200 , })}
               placeholder="Enter task description (optional)"
               className="textarea textarea-bordered w-full"
             ></textarea>

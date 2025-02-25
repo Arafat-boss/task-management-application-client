@@ -30,18 +30,16 @@ const Hero = () => {
       }}
     >
       <div className="hero-content text-neutral-content text-center">
-        <div className="w-8/12">
+        <div className="w-12/12">
           <h1 className="mb-5 text-5xl font-bold">
-            Challenge Your Knowledge & Sharpen Your Skills!
+          Take Control of Your Tasks!
           </h1>
           <p className="mb-5">
-            Test your brainpower with exciting quizzes! From fun facts to tricky
-            questions, see how much you really know and climb the leaderboard.
-            Ready to take on the challenge? Let’s go! 🎯💡
+          Organize tasks, track progress, and save time to achieve more effortlessly. 🎯💡
           </p>
           <button
             onClick={handelGoogle}
-            className="flex items-center justify-center gap-2 lg:w-3/12 mx-auto text-black px-4 py-2 rounded-lg shadow-md bg-blue-200 opacity-75"
+            className="flex items-center justify-center gap-2 lg:w-5/12 mx-auto text-black px-4 py-2 rounded-lg shadow-md bg-blue-200 opacity-50"
           >
             <FcGoogle className="text-2xl" />
             <span className="font-medium">Sign in with Google</span>
