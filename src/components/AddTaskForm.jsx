@@ -19,7 +19,7 @@ const AddTaskForm = ({ onAddTask }) => {
     };
 
     try {
-      const response = await axios.post("http://localhost:3000/tasks", taskData);
+      const response = await axios.post("https://task-management-server-chi-six.vercel.app/tasks", taskData);
       console.log("Task added successfully:", response.data);
 
       if (onAddTask) {

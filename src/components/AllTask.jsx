@@ -110,7 +110,7 @@
 //  useEffect(() => {
 //   const fetchTasks = async () => {
 //     try {
-//       const response = await axios.get("http://localhost:3000/tasks");
+//       const response = await axios.get("https://task-management-server-chi-six.vercel.app/tasks");
 //       setTasks(response.data);
 //     } catch (error) {
 //       console.error("Error fetching tasks:", error);
@@ -224,7 +224,7 @@ const AllTask = () => {
   
     const fetchTasks = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/tasks/${user.email}`);
+        const response = await axios.get(`https://task-management-server-chi-six.vercel.app/tasks/${user.email}`);
         setTasks(response.data);
       } catch (error) {
         console.error("Error fetching tasks:", error);
@@ -258,7 +258,7 @@ const AllTask = () => {
     if (!window.confirm("Are you sure you want to delete this task?")) return;
 
     try {
-      await axios.delete(`http://localhost:3000/tasks/${taskId}`);
+      await axios.delete(`https://task-management-server-chi-six.vercel.app/tasks/${taskId}`);
       setTasks((prevTasks) => prevTasks.filter((task) => task._id !== taskId));
       setShowOptions(null);
     } catch (error) {
@@ -286,7 +286,7 @@ const AllTask = () => {
         category: selectedTask.category,
       };
 
-      await axios.put(`http://localhost:3000/tasks/${selectedTask._id}`, updatedTask);
+      await axios.put(`https://task-management-server-chi-six.vercel.app/tasks/${selectedTask._id}`, updatedTask);
 
       setTasks((prevTasks) =>
         prevTasks.map((task) =>

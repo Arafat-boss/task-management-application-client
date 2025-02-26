@@ -41,7 +41,7 @@ const Navbar = () => {
             </svg>
           </div>
         </div>
-        <a className="btn btn-ghost text-xl">Quiz Platform</a>
+        <a className="btn btn-ghost text-xl">Task Management</a>
       </div>
 
       <div className="navbar-end"></div>
